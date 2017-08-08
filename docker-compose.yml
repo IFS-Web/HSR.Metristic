@@ -1,0 +1,9 @@
+version: '2.1'
+services:
+  metristic:
+    image: geometalab/metristic:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"

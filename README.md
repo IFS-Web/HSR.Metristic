@@ -26,7 +26,7 @@ Node.js based checking and metric web service.
 
 * Install [node.js](https://nodejs.org/en/)
 * Verify wc is available: `which wc` (used to count lines)
-* Local installation: Download, link, install and deploy core & plugins like described in its documentations. Install core first, then the plugins and at least the deployment (this). For a detailed automated installation example see the steps of the [docker image](./Dockerfile.latest).
+* Local installation: Download, link, install and deploy core & plugins like described in its documentations. Install core first, then the plugins and at least the deployment (this). For a detailed automated installation example see the steps of the [docker image](./Dockerfile).
 * Download release
 * Extract archive
 * Enter the extracted directory, e.g. `cd Metristic-1.0`.
@@ -115,11 +115,11 @@ typings install dt~node dt~jasmine --global --save
 
 Docker will clone the newest stable/development source from GitHub, build from source, remove all dependencies and install only production dependencies.
 
-action | latest | unstable
+action | docker | npm | docker-compose
 --- | --- | ---
-Build | `docker build --no-cache -t hsr/metristic/latest -f Dockerfile.latest .`<br />or `npm build-latest-container` | `docker build --no-cache -t hsr/metristic/unstable -f Dockerfile.unstable .`<br />or `npm build-unstable-container`
-Run | `docker run -p 8080:8080 -it --rm --name metristic-latest hsr/metristic/latest` <br />`or npm run run-latest-container` | `docker run -p 8080:8080 -it --rm --name metristic-unstable hsr/metristic/unstable`<br />or `npm run run-unstable-container`
-Stop | `docker stop metristic-latest` <br />or `npm run stop-latest-container` | `docker stop metristic-unstable` <br />or `npm run stop-unstable-container`
+Build | `docker build --no-cache -t hsr/metristic/latest -f Dockerfile .` | `npm build-latest-container` | `docker-compose build`
+Run | `docker run -p 8080:8080 -it --rm --name metristic-latest hsr/metristic/latest` | `or npm run run-latest-container` | `docker-compose up -d`
+Stop | `docker stop metristic-latest` <br />or `npm run stop-latest-container` | `docker-compose stop`
 
 
 ### Manage container
