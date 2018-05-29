@@ -1,4 +1,4 @@
-FROM node:7.6.0-wheezy
+FROM node:8.11.2
 
 RUN apt-get update && apt-get -y install git && apt-get clean all
 
@@ -11,12 +11,11 @@ RUN git clone --depth=1 https://github.com/IFS-Web/HSR.Metristic.Core.git
 WORKDIR /usr/src/metristic/HSR.Metristic.Core
 RUN \
 	npm install --no-optional --silent && \
-	npm run typings install && \
 	npm run gulp deploy && \
 	npm link && \
 	rm -rf node_modules && \
 	npm install --no-optional --silent --production && \
-	npm cache clean
+	npm cache clean --force
 WORKDIR /usr/src/metristic
 
 
@@ -25,13 +24,12 @@ WORKDIR /usr/src/metristic/HSR.Metristic.Plugin.General
 RUN \
 	npm link "metristic-core" && \
 	npm install --no-optional --silent && \
-	npm run typings install && \
 	npm run gulp deploy && \
 	npm link && \
 	rm -rf node_modules && \
 	npm link "metristic-core" && \
 	npm install --no-optional --silent --production && \
-	npm cache clean
+	npm cache clean --force
 WORKDIR /usr/src/metristic
 
 
@@ -40,13 +38,12 @@ WORKDIR /usr/src/metristic/HSR.Metristic.Plugin.Web
 RUN \
 	npm link "metristic-core" && \
 	npm install --no-optional --silent && \
-	npm run typings install && \
 	npm run gulp deploy && \
 	npm link && \
 	rm -rf node_modules && \
 	npm link "metristic-core" && \
 	npm install --no-optional --silent --production && \
-	npm cache clean
+	npm cache clean --force
 WORKDIR /usr/src/metristic
 
 
@@ -58,7 +55,6 @@ RUN \
 	npm link "metristic-plugin-general" && \
 	npm link "metristic-plugin-web" && \
 	npm install --no-optional --silent && \
-	npm run typings install && \
 	npm run gulp deploy && \
 	npm link && \
 	rm -rf node_modules && \
@@ -66,7 +62,7 @@ RUN \
 	npm link "metristic-plugin-general" && \
 	npm link "metristic-plugin-web" && \
 	npm install --no-optional --silent --production && \
-	npm cache clean
+	npm cache clean --force
 WORKDIR /usr/src/metristic
 
 

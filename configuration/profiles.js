@@ -45,7 +45,9 @@ module.exports = {
             JsStyleCheck : {
                 jquery: true,
                 browser: true,
-                eqeqeq: "smart"
+                eqeqeq: "smart",
+				strict: "global"
+
             },
 			PageVisualizer: {
 				filePatterns: ['*/index.html']
