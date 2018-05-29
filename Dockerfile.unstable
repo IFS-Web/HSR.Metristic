@@ -11,7 +11,6 @@ RUN git clone -b develop --depth=1 https://github.com/IFS-Web/HSR.Metristic.Core
 WORKDIR /usr/src/metristic/HSR.Metristic.Core
 RUN \
 	npm install --no-optional --silent && \
-	npm run typings install && \
 	npm run gulp deploy && \
 	npm link && \
 	rm -rf node_modules && \
@@ -25,7 +24,6 @@ WORKDIR /usr/src/metristic/HSR.Metristic.Plugin.General
 RUN \
 	npm link "metristic-core" && \
 	npm install --no-optional --silent && \
-	npm run typings install && \
 	npm run gulp deploy && \
 	npm link && \
 	rm -rf node_modules && \
@@ -40,7 +38,6 @@ WORKDIR /usr/src/metristic/HSR.Metristic.Plugin.Web
 RUN \
 	npm link "metristic-core" && \
 	npm install --no-optional --silent && \
-	npm run typings install && \
 	npm run gulp deploy && \
 	npm link && \
 	rm -rf node_modules && \
@@ -58,7 +55,6 @@ RUN \
 	npm link "metristic-plugin-general" && \
 	npm link "metristic-plugin-web" && \
 	npm install --no-optional --silent && \
-	npm run typings install && \
 	npm run gulp deploy && \
 	npm link && \
 	rm -rf node_modules && \
