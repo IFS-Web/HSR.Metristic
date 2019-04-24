@@ -7,8 +7,8 @@
     "gulp": "gulp",
     "build-latest-container": "docker build --no-cache -t hsr/metristic/latest -f Dockerfile.latest .",
     "build-unstable-container": "docker build --no-cache -t hsr/metristic/unstable -f Dockerfile.unstable .",
-    "run-latest-container": "echo 'start metristic latest'; docker run -p 8080:8080 -it --rm --name metristic-latest hsr/metristic/latest; echo 'stop metristic latest'",
-    "run-unstable-container": "echo 'start metristic unstable'; docker run -p 8080:8080 -it --rm --name metristic-unstable hsr/metristic/unstable; echo 'stop metristic unstable'",
+    "run-latest-container": "docker run -p 8080:8080 -it --rm --name metristic-latest hsr/metristic/latest",
+    "run-unstable-container": "docker run -p 8080:8080 -it --rm --name metristic-unstable hsr/metristic/unstable",
     "stop-latest-container": "docker stop metristic-latest",
     "stop-unstable-container": "docker stop metristic-unstable",
     "pack-release": "gulp deploy && (cd ../; zip -r HSR.Metristic.zip HSR.Metristic -x '.*' -x '*/.*' -x '*/node_modules/*' -x '*/src/*' -x '*/Dockerfile' -x '*/tsconfig.json' -x '*/tslint.json' -x '*/gulpfile.js' -x '*/*.log')"
